@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Article(models.Model):
+class Goal(models.Model):
     describe = models.TextField(max_length=3000, null=False, blank=False, verbose_name='Description')
     status = models.CharField(max_length=40, null=False, blank=False, default='new', verbose_name='Status')
     execute_at = models.DateTimeField(auto_now_add=True, verbose_name='Date of execution')
