@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from webapp.models import Goal
 
-# Create your views here.
+def index_view(request):
+    data = Goal.objects.all()
+    return render(request, 'index.html', context={
+        'goals': data
+    })
