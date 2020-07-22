@@ -22,3 +22,16 @@ def goal_create_view(request):
         goal = Goal.objects.create(describe=describe, status=status, execute_at=execute_at)
         context = {'goal': goal}
         return render(request, 'goal_view.html', context)
+
+
+def delete_goal(request):
+    if request.method == 'GET':
+        return render(request, 'delete_form.html')
+    elif request.method == 'POST':
+        id_goal = request.POST.get('id')
+        goal = Goal.objects.get(pk=id_goal)
+        goal.delete()
+        data = Goal.objects.all()
+        return render(request, 'index.html', context={
+            'goals': data
+        })

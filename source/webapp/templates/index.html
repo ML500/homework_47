@@ -15,9 +15,15 @@
         {% for goal in goals %}
             <h3>id:{{ goal.pk }} {{ goal.describe }}</h3>
             <p>Status: {{ goal.get_status_display }}</p>
-            <p>Date of execution: {{ goal.execute_at }}</p>
+            {% if goal.execute_at %}
+                <p>Date of execution: {{ goal.execute_at }}</p>
+            {% else %}
+            <p>Date of execution: No data</p>
+            {% endif %}
         {% endfor %}
         <a href="/goal/add/">Add Goal</a>
+        <a href="/goal/delete/">Delete Goal</a>
+
         
     </div>
 </body>
