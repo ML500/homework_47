@@ -5,5 +5,10 @@ body {
 .container{
     margin: 0 auto;
     max-width: 900px;
+}
+.form {
+    line-height: 40px;
+}
+.headline {
     text-align: center;
 }

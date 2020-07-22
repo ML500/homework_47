@@ -11,10 +11,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>My Goals</h1>
+        <h1 class="headline">My Goals</h1>
         {% for goal in goals %}
-            <h3>{{ goal.pk }} {{ goal.describe }}</h3>
-            <p>{{ goal.status }} {{ goal.execute_at }}</p>
+            <h3>id:{{ goal.pk }} {{ goal.describe }}</h3>
+            <p>Status: {{ goal.get_status_display }}</p>
+            <p>Date of execution: {{ goal.execute_at }}</p>
         {% endfor %}
         <a href="/goal/add/">Add Goal</a>
         
