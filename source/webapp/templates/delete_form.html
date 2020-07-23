@@ -1,18 +1,23 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Delete</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
 </head>
 <body>
     <div class="container">
-        <h1>Delete Article</h1>
+        <h1 class = 'headline'>Delete Goal</h1>
+        {% for goal in goals %}
+            <p>id:{{ goal.pk }} {{ goal.describe }}</p>
+        {% endfor %}
         <form action="/goal/delete/" method="post">
         {% csrf_token %}
-            <label>Enter id of goal:</label><br/>
-            <input type="number" name="id"/><br/>
-            <input type="submit" value="Send"/>
+            <label>Enter id of goal:</label> <input type="number" name="id"/><br/>
+            <input type="submit" value="Delete"/>
         </form>
+        <p><a href="/">Main Page</a></p>
     </div>
 </body>
 </html>

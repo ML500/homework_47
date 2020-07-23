@@ -16,13 +16,13 @@
             <h3>id:{{ goal.pk }} {{ goal.describe }}</h3>
             <p>Status: {{ goal.get_status_display }}</p>
             {% if goal.execute_at %}
-                <p>Date of execution: {{ goal.execute_at }}</p>
+            <p>Date of execution: {{ goal.execute_at }}</p>
             {% else %}
             <p>Date of execution: No data</p>
             {% endif %}
         {% endfor %}
-        <a href="/goal/add/">Add Goal</a>
-        <a href="/goal/delete/">Delete Goal</a>
+        <p><a href="/goal/add/">Add Goal</a></p>
+        <p><a href="/goal/delete/">Delete Goal</a></p>
 
         
     </div>

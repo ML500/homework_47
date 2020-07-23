@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>{{ goal.describe }}</h1>
-        <p>{{ goal.status }}</p>
-        <p>{{ goal.execute_at }}</p>
+        <h1 class="headline">Goal view</h1>
+        <p>Describe: {{ goal.describe }}</p>
+        <p>Status: {{ goal.get_status_display }}</p>
+        <p>Date of execution: {{ goal.execute_at }}</p>
         <p><a href="/">Main Page</a></p>
     </div>
 
