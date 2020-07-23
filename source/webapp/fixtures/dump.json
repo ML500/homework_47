@@ -1,0 +1,92 @@
+[
+{
+  "model": "webapp.goal",
+  "pk": 10,
+  "fields": {
+    "describe": "\u0421lean up the garage",
+    "status": "new",
+    "execute_at": null
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 11,
+  "fields": {
+    "describe": "Buy a birthday present for grandmother",
+    "status": "new",
+    "execute_at": null
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 12,
+  "fields": {
+    "describe": "Help friend with move",
+    "status": "new",
+    "execute_at": null
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 22,
+  "fields": {
+    "describe": "Visit my relatives",
+    "status": "in_progress",
+    "execute_at": "2020-12-31"
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 23,
+  "fields": {
+    "describe": "Prepear goods for client",
+    "status": "done",
+    "execute_at": "2020-06-30"
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 24,
+  "fields": {
+    "describe": "Go in market",
+    "status": "done",
+    "execute_at": "2020-07-01"
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 26,
+  "fields": {
+    "describe": "run 13 km",
+    "status": "in_progress",
+    "execute_at": "2020-07-23"
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 27,
+  "fields": {
+    "describe": "buy new mouse",
+    "status": "in_progress",
+    "execute_at": null
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$FO57ZKIByvk9$m/xbGyO2Lq79t6XYy6zx+FW/hhQRkW/5nJCP0zN4qK8=",
+    "last_login": "2020-07-22T18:19:16.906Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-07-22T11:16:56.364Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
