@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import Goal, STATUS_CHOICES
+
+from django.urls import reverse
 
 
 def index_view(request):
@@ -7,6 +9,12 @@ def index_view(request):
     return render(request, 'index.html', context={
         'goals': data
     })
+
+
+def goal_view(request, pk):
+    goal = get_object_or_404(Goal, pk=pk)
+    context = {'goal': goal}
+    return render(request, 'goal_view.html', context)
 
 
 def goal_create_view(request):
