@@ -14,12 +14,13 @@ def goal_create_view(request):
         return render(request, 'create_goal.html', context={'status_choices': STATUS_CHOICES})
     elif request.method == 'POST':
         describe = request.POST.get('describe')
+        detail = request.POST.get('detail')
         status = request.POST.get('status')
         if request.POST.get('execute_at') == '':
             execute_at = None
         else:
             execute_at = request.POST.get('execute_at')
-        goal = Goal.objects.create(describe=describe, status=status, execute_at=execute_at)
+        goal = Goal.objects.create(describe=describe, status=status, detail=detail, execute_at=execute_at)
         context = {'goal': goal}
         return render(request, 'goal_view.html', context)
 

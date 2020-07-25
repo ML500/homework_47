@@ -14,6 +14,7 @@
         <h1 class="headline">My Goals</h1>
         {% for goal in goals %}
             <h3>id:{{ goal.pk }} {{ goal.describe }}</h3>
+            <p>Detail: {{ goal.detail }}</p>
             <p>Status: {{ goal.get_status_display }}</p>
             {% if goal.execute_at %}
             <p>Date of execution: {{ goal.execute_at }}</p>
