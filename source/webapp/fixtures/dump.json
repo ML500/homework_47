@@ -4,6 +4,7 @@
   "pk": 10,
   "fields": {
     "describe": "\u0421lean up the garage",
+    "detail": "no description",
     "status": "new",
     "execute_at": null
   }
@@ -13,6 +14,7 @@
   "pk": 11,
   "fields": {
     "describe": "Buy a birthday present for grandmother",
+    "detail": "no description",
     "status": "new",
     "execute_at": null
   }
@@ -22,6 +24,7 @@
   "pk": 12,
   "fields": {
     "describe": "Help friend with move",
+    "detail": "no description",
     "status": "new",
     "execute_at": null
   }
@@ -31,6 +34,7 @@
   "pk": 22,
   "fields": {
     "describe": "Visit my relatives",
+    "detail": "test",
     "status": "in_progress",
     "execute_at": "2020-12-31"
   }
@@ -40,6 +44,7 @@
   "pk": 23,
   "fields": {
     "describe": "Prepear goods for client",
+    "detail": "test test\ntest test",
     "status": "done",
     "execute_at": "2020-06-30"
   }
@@ -49,6 +54,7 @@
   "pk": 24,
   "fields": {
     "describe": "Go in market",
+    "detail": "no description",
     "status": "done",
     "execute_at": "2020-07-01"
   }
@@ -58,6 +64,7 @@
   "pk": 26,
   "fields": {
     "describe": "run 13 km",
+    "detail": "tro lo lo",
     "status": "in_progress",
     "execute_at": "2020-07-23"
   }
@@ -67,8 +74,19 @@
   "pk": 27,
   "fields": {
     "describe": "buy new mouse",
+    "detail": "test",
     "status": "in_progress",
     "execute_at": null
+  }
+},
+{
+  "model": "webapp.goal",
+  "pk": 38,
+  "fields": {
+    "describe": "Help to my mother with work",
+    "detail": "test test test test \r\ntest test test test \r\ntest test test test ",
+    "status": "done",
+    "execute_at": "2020-06-30"
   }
 },
 {
