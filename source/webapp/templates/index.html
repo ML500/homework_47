@@ -1,29 +1,11 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1 class="headline">My Goals</h1>
-        {% for goal in goals %}
-            <h2><a href="{% url "goal_view" goal.pk %}">{{ goal.describe }}</a></h2>
-{#            {% if goal.execute_at %}#}
-{#            <p>Date of execution: {{ goal.execute_at }}</p>#}
-{#            {% else %}#}
-{#            <p>Date of execution: No data</p>#}
-{#            {% endif %}#}
-        {% endfor %}
-        <p><a href="/goal/add/">Add Goal</a></p>
-        <p><a href="/goal/delete/">Delete Goal</a></p>
+{% extends 'base.html' %}
 
-        
-    </div>
-</body>
-</html>
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>List of goals</h1>
+    
+    {% for goal in goals %}
+        <h3><a href="{% url "goal_view" goal.pk %}">{{ goal.describe }}</a></h3>
+    {% endfor %}
+{% endblock %}

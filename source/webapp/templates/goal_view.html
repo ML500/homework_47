@@ -1,20 +1,11 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View</title>
-    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1 class="headline">Goal view</h1>
-        <p>Describe: {{ goal.describe }}</p>
-        <p>Detail: {{ goal.detail }}</p>
-        <p>Status: {{ goal.get_status_display }}</p>
-        <p>Date of execution: {{ goal.execute_at }}</p>
-        <p><a href="/">Main Page</a></p>
-    </div>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}View{% endblock %}
+
+{% block content %}
+    <h3>Goal: {{ goal.describe }}</h3>
+    <p>Detail: {{ goal.detail | linebreaksbr}}</p>
+    <p>Status: {{ goal.get_status_display }}</p>
+    <p>Date of execution: {{ goal.execute_at }}</p>
+    <p><a href="/">Main Page</a></p>
+{% endblock %}

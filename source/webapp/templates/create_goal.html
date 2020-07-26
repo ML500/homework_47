@@ -1,40 +1,28 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
-    <title>Create</title>
-    <div class='container form'>
-        <h1 CLASS="headline">Create Goal</h1>
-        <form action="/goal/add/" method="post">
-            {% csrf_token %}
+{% extends "base.html" %}
+{% block title %}Create{% endblock %}
+{% block content %}
+    <h1>Create goal</h1>
+    <form action="{% url "goal_create" %}" method="post">
+        {% csrf_token %}
 
-            <label>Descibe:</label><br/>
-            <input type="text" name="describe"/><br/>
+        <label>Describe:</label><br/>
+        <input type="text" name="describe"/><br/>
 
-            <label>Detail:</label><br/>
-            <input type="text" name="detail"/><br/>
+        <label>Detail:</label><br/>
+        <textarea name="detail"></textarea><br/>
 
-            <label>Date of execution:</label><br/>
-            <input type='text' name="execute_at"/><br/>
 
-            <label for="id-status">Status:</label> <select name="status" id="id-status">
+        <label>Date of execution:</label><br/>
+        <input type='text' name="execute_at"/><br/>
 
-            {% for value, label in status_choices %}
-                <option value="{{ value }}">{{ label }}</option>
-            {% endfor %}
+        <label for="id-status">Status:</label> <select name="status" id="id-status">
 
-        </select>
-            <br/>
-            <input type="submit" value="Send"/>
-        </form>
-    </div>
-</head>
-<body>
+        {% for value, label in status_choices %}
+            <option value="{{ value }}">{{ label }}</option>
+        {% endfor %}
 
-</body>
-</html>
+        </select><br/>
+        <br/>
+        <input type="submit" value="Send"/>
+    </form>
+{% endblock %}
