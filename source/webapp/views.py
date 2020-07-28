@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import Goal, STATUS_CHOICES
 from django.http import HttpResponseNotAllowed
 
-
-# from webapp.forms import GoalForm
+from webapp.forms import GoalForm
 
 
 def index_view(request):
@@ -21,18 +20,23 @@ def goal_view(request, pk):
 
 def goal_create_view(request):
     if request.method == 'GET':
-        return render(request, 'create_goal.html', context={'status_choices': STATUS_CHOICES})
+        return render(request, 'create_goal.html', context={
+            'form': GoalForm()
+        })
     elif request.method == 'POST':
-        describe = request.POST.get('describe')
-        detail = request.POST.get('detail')
-        status = request.POST.get('status')
-        if request.POST.get('execute_at') == '':
-            execute_at = None
+        form = GoalForm(data=request.POST)
+        if form.is_valid():
+            goal = Goal.objects.create(
+                describe=form.cleaned_data['describe'],
+                detail=form.cleaned_data['detail'],
+                execute_at=form.cleaned_data['execute_at'],
+                status=form.cleaned_data['status'],
+            )
+            return redirect('goal_view', pk=goal.pk)
         else:
-            execute_at = request.POST.get('execute_at')
-        goal = Goal.objects.create(describe=describe, status=status, detail=detail, execute_at=execute_at)
-        context = {'goal': goal}
-        return redirect('goal_view', pk=goal.pk)
+            return render(request, 'goal_view.html', context={
+                'form': form
+            })
 
 
 def goal_update_view(request, pk):
@@ -48,6 +52,7 @@ def goal_update_view(request, pk):
         goal.detail = request.POST.get('detail')
         if not goal.detail:
             errors['detail'] = 'This field is required'
+        goal.execute_at = request.POST.get('execute_at')
         goal.status = request.POST.get('status')
         if errors:
             return render(request, 'goal_update.html', context={'status_choices': STATUS_CHOICES,

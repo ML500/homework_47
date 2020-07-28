@@ -5,23 +5,10 @@
     <form action="{% url "goal_create" %}" method="post">
         {% csrf_token %}
 
-        <label>Describe:</label><br/>
-        <input type="text" name="describe"/><br/>
-
-        <label>Detail:</label><br/>
-        <textarea name="detail"></textarea><br/>
-
-
-        <label>Date of execution:</label><br/>
-        <input type='text' name="execute_at"/><br/>
-
-        <label for="id-status">Status:</label> <select name="status" id="id-status">
-
-        {% for value, label in status_choices %}
-            <option value="{{ value }}">{{ label }}</option>
-        {% endfor %}
-
-        </select><br/>
+        {% include 'partial/form.field.html' with field=form.describe %}
+        {% include 'partial/form.field.html' with field=form.detail %}
+        {% include 'partial/form.field.html' with field=form.execute_at %}
+        {% include 'partial/form.field.html' with field=form.status %}
         <br/>
         <input type="submit" value="Send"/>
     </form>

@@ -17,6 +17,9 @@
         <textarea name="detail"> {{ goal.detail }}</textarea><br/>
         {% if errors.detail %}<p class="error">{{ errors.detail }}</p>{% endif %}
 
+        <label>Date of execution:</label><br/>
+        <input type="text" name="execute_at" value="{{ goal.execute_at }}"><br/>
+
         <label for="id-status">Status:</label><br/>
         <select name="status" id="id-status">
             {% for value, label in status_choices %}
