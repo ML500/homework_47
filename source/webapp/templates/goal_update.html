@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Update{% endblock %}
+{% block menu %}
+    <li><a href="{% url 'goal_view' goal.pk %}">Cancel</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Update goal</h1>
+    <form action="{% url 'goal_update' goal.pk %}" method="post">
+    {% csrf_token %}
+
+        <label>Describe:</label><br/>
+        <input type="text" name="describe" value="{{ goal.describe }}"><br/>
+        {% if errors.describe %} <p class="error">{{ errors.describe }}</p>{% endif %}
+
+        <label>Detail:</label><br/>
+        <textarea name="detail"> {{ goal.detail }}</textarea><br/>
+        {% if errors.detail %}<p class="error">{{ errors.detail }}</p>{% endif %}
+
+        <label for="id-status">Status:</label><br/>
+        <select name="status" id="id-status">
+            {% for value, label in status_choices %}
+                <option value="{{ value }}"
+                        {% if value == goal.status %}selected{% endif %}>
+                    {{ label }}
+                </option>
+            {% endfor %}
+        </select><br/>
+
+        <br/>
+        <input type="submit" value="Send"/>
+    </form>
+{% endblock %}
