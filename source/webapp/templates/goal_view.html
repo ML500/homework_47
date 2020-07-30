@@ -6,6 +6,10 @@
     <h3>Goal: {{ goal.describe }}</h3>
     <p>Detail: </p><pre>{{ goal.detail }}</pre>
     <p>Status: {{ goal.get_status_display }}</p>
-    <p>Date of execution: {{ goal.execute_at }}</p>
+    {% if goal.execute_at == None %}
+        <p>Date of execution: No data</p>
+    {% else %}
+        <p>Date of execution: {{ goal.execute_at|date:"d.m.Y" }}</p>
+    {% endif %}
     <p><a href="/">Main Page</a></p>
 {% endblock %}
