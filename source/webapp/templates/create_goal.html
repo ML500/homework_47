@@ -2,14 +2,8 @@
 {% block title %}Create{% endblock %}
 {% block content %}
     <h1>Create goal</h1>
-    <form action="{% url "goal_create" %}" method="post">
-        {% csrf_token %}
 
-        {% include 'partial/form.field.html' with field=form.describe %}
-        {% include 'partial/form.field.html' with field=form.detail %}
-        {% include 'partial/form.field.html' with field=form.execute_at %}
-        {% include 'partial/form.field.html' with field=form.status %}
-        <br/>
-        <input type="submit" value="Send"/>
-    </form>
+    {% url 'goal_create' as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
+
 {% endblock %}

@@ -4,7 +4,7 @@
 
 {% block content %}
     <h3>Goal: {{ goal.describe }}</h3>
-    <p>Detail: {{ goal.detail | linebreaksbr}}</p>
+    <p>Detail: </p><pre>{{ goal.detail }}</pre>
     <p>Status: {{ goal.get_status_display }}</p>
     <p>Date of execution: {{ goal.execute_at }}</p>
     <p><a href="/">Main Page</a></p>

@@ -8,5 +8,6 @@
     {% for goal in goals %}
         <h3><a href="{% url "goal_view" goal.pk %}">{{ goal.describe }}</a></h3>
         <p><a href="{% url 'goal_update' goal.pk %}">Update</a></p>
+        <p><a href="{% url 'goal_delete' goal.pk %}">Delete</a></p>
     {% endfor %}
 {% endblock %}
